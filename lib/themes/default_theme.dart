@@ -15,7 +15,7 @@ const mColorBlanco = Colors.white;
 const mTextColor = Colors.black;
 //Imagenes
 const imgLoading = 'assets/images/loading.gif';
-const imgFondo = 'assets/images/fondo.gif';
+const imgFondo = 'assets/images/fondo.png';
 
 class DefaultTheme {
   static ThemeData base = ThemeData.light().copyWith(
@@ -28,7 +28,7 @@ class DefaultTheme {
       ),
       textTheme: TextTheme(
           headline1: GoogleFonts.getFont('Dancing Script',
-              fontSize: 20, fontWeight: FontWeight.normal),
+              fontSize: 70, fontWeight: FontWeight.normal),
           headline2:
               GoogleFonts.nunito(fontWeight: FontWeight.bold, fontSize: 20),
           headline3: GoogleFonts.nunito(fontSize: 20, color: mColorBlanco),
