@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_emanuel/screens/screens.dart';
 import 'package:flutter_emanuel/themes/default_theme.dart';
-
-import 'screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,8 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: DefaultTheme.base,
-      initialRoute: HomeScreen.routerName,
-      routes: {HomeScreen.routerName: (context) => const HomeScreen()},
+      initialRoute: OptionsScreen.routerName,
+      routes: {
+        HomeScreen.routerName: (context) => const HomeScreen(),
+        OptionsScreen.routerName: (context) => OptionsScreen(),
+      },
     );
   }
 }
