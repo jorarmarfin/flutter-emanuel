@@ -17,8 +17,13 @@ class OptionsScreen extends StatelessWidget {
         decoration: const BoxDecoration(
           image: DecorationImage(image: AssetImage(imgFondo), fit: BoxFit.fill),
         ),
-        child:
-            Column(children: [_SantoDelDia(), _CicloLiturgico(), _Botones()]),
+        child: ListView(
+          children: [
+            _SantoDelDia(),
+            _CicloLiturgico(),
+            _Botones()
+          ], //const [_SantoDelDia(), _CicloLiturgico(), _Botones()]
+        ),
       ),
     );
   }
@@ -33,10 +38,63 @@ class _Botones extends StatelessWidget {
   Widget build(BuildContext context) {
     return Table(
       children: [
-        TableRow(children: [Text('data1'), Text('data2'), Text('data3')]),
-        TableRow(children: [Text('data1'), Text('data2'), Text('data3')]),
-        TableRow(children: [Text('data1'), Text('data2'), Text('data3')]),
+        TableRow(children: [
+          GestureDetector(
+              onTap: () {
+                print('object');
+                Navigator.pushNamed(
+                  context,
+                  'construccion',
+                );
+              },
+              child: _BotonOpcion(
+                  botonIcono: icoNosotros, botonNombre: 'Emanuel')),
+          _BotonOpcion(botonIcono: icoCumples, botonNombre: 'Cumpleaños'),
+          _BotonOpcion(botonIcono: icoFormacion, botonNombre: 'Formación'),
+        ]),
+        TableRow(children: [
+          _BotonOpcion(botonIcono: icoBiblioteca, botonNombre: 'Biblioteca'),
+          _BotonOpcion(botonIcono: icoEnlaces, botonNombre: 'Zoom'),
+          _BotonOpcion(botonIcono: icoMisas, botonNombre: 'Misas'),
+        ]),
+        TableRow(children: [
+          _BotonOpcion(botonIcono: icoOfrendas, botonNombre: 'Ofrendas'),
+          _BotonOpcion(botonIcono: icoServicios, botonNombre: 'Servicios'),
+          _BotonOpcion(botonIcono: icoMisas, botonNombre: 'Noti'),
+        ]),
       ],
+    );
+  }
+}
+
+class _BotonOpcion extends StatelessWidget {
+  final String botonIcono;
+  final String botonNombre;
+  const _BotonOpcion({
+    Key? key,
+    required this.botonIcono,
+    required this.botonNombre,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(7.0),
+      padding: const EdgeInsets.symmetric(vertical: 15.0),
+      decoration: estiloBoton(colorAmarillo),
+      child: Column(
+        children: [
+          Image.asset(
+            botonIcono,
+            width: 50,
+            height: 50,
+          ),
+          Text(
+            botonNombre,
+            style: DefaultTheme.base.textTheme.subtitle1,
+          )
+        ],
+      ),
     );
   }
 }

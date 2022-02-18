@@ -9,10 +9,22 @@ const colorAmarillo = Color(0xffFFD101);
 const colorCeleste = Color(0xff71EFE6);
 const colorColorBlanco = Colors.white;
 const colorTextColor = Colors.black;
+
 //Imagenes
 const imgLoading = 'assets/images/loading.gif';
 const imgFondo = 'assets/images/fondo.png';
 const imgSanto = 'assets/images/santosinimagen.png';
+
+//Iconos
+const icoNosotros = 'assets/icons/about.png';
+const icoBiblioteca = 'assets/icons/book-stack.png';
+const icoCumples = 'assets/icons/cake.png';
+const icoMisas = 'assets/icons/chapel.png';
+const icoServicios = 'assets/icons/cleaning.png';
+const icoConstruccion = 'assets/icons/helmet.png';
+const icoOfrendas = 'assets/icons/money-bag.png';
+const icoFormacion = 'assets/icons/read.png';
+const icoEnlaces = 'assets/icons/zoom.png';
 
 class DefaultTheme {
   static ThemeData base = ThemeData.light().copyWith(
@@ -28,16 +40,21 @@ class DefaultTheme {
               fontSize: 60, color: colorTextColor, fontWeight: FontWeight.bold),
           headline2: GoogleFonts.josefinSans(fontSize: 20, color: Colors.white),
           subtitle1: GoogleFonts.josefinSans(fontSize: 17, color: Colors.black),
-          bodyText1:
-              const TextStyle(color: Colors.black), //para enfatizar texto
-          bodyText2: const TextStyle(
-              color: colorTextColor, fontSize: 20) //para texto del body
-          ));
+          subtitle2: GoogleFonts.josefinSans(fontSize: 15, color: Colors.black),
+          bodyText1: const TextStyle(color: Colors.black)));
 }
 
 BoxDecoration estiloRecuadro(color) {
   return BoxDecoration(
     color: color,
+    borderRadius: BorderRadius.circular(20),
+  );
+}
+
+BoxDecoration estiloBoton(color) {
+  return BoxDecoration(
+    color: color,
+    border: Border.all(color: Colors.white, width: 2.5),
     borderRadius: BorderRadius.circular(20),
   );
 }
