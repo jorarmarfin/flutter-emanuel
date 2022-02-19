@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../themes/default_theme.dart';
 
-
 class ConstruccionScreen extends StatelessWidget {
   static const String routerName = 'construccion';
   const ConstruccionScreen({Key? key}) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +15,17 @@ class ConstruccionScreen extends StatelessWidget {
         decoration: const BoxDecoration(
           image: DecorationImage(image: AssetImage(imgFondo), fit: BoxFit.fill),
         ),
-        child: Column(children: [Text('Sitio en construcción'),Image.asset(icoConstruccion)]),
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Text(
+            'Sección en construcción',
+            style: DefaultTheme.base.textTheme.headline1,
+            textAlign: TextAlign.center,
+          ),
+          Image.asset(
+            icoConstruccion,
+            width: 200,
+          )
+        ]),
       ),
     );
   }

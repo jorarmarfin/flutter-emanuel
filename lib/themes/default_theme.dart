@@ -21,7 +21,7 @@ const icoBiblioteca = 'assets/icons/book-stack.png';
 const icoCumples = 'assets/icons/cake.png';
 const icoMisas = 'assets/icons/chapel.png';
 const icoServicios = 'assets/icons/cleaning.png';
-const icoConstruccion = 'assets/icons/helmet.png';
+const icoConstruccion = 'assets/icons/construccion2.gif';
 const icoOfrendas = 'assets/icons/money-bag.png';
 const icoFormacion = 'assets/icons/read.png';
 const icoEnlaces = 'assets/icons/zoom.png';
@@ -50,6 +50,8 @@ BoxDecoration estiloRecuadro(color) {
     borderRadius: BorderRadius.circular(20),
   );
 }
+
+
 
 BoxDecoration estiloBoton(color) {
   return BoxDecoration(
