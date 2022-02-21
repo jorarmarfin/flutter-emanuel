@@ -39,6 +39,7 @@ class DefaultTheme {
           headline1: GoogleFonts.akayaTelivigala(
               fontSize: 60, color: colorTextColor, fontWeight: FontWeight.bold),
           headline2: GoogleFonts.josefinSans(fontSize: 20, color: Colors.white),
+          headline6: GoogleFonts.josefinSans(fontSize: 20, color: Colors.white),
           subtitle1: GoogleFonts.josefinSans(fontSize: 17, color: Colors.black),
           subtitle2: GoogleFonts.josefinSans(fontSize: 15, color: Colors.black),
           bodyText1: const TextStyle(color: Colors.black)));
@@ -50,8 +51,6 @@ BoxDecoration estiloRecuadro(color) {
     borderRadius: BorderRadius.circular(20),
   );
 }
-
-
 
 BoxDecoration estiloBoton(color) {
   return BoxDecoration(
