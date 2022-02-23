@@ -1,4 +1,4 @@
 
 
-export 'package:flutter_familia/providers/drupal_provider.dart';
+export 'package:flutter_emanuel/providers/drupal_provider.dart';
 

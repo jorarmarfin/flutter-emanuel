@@ -8,30 +8,23 @@ import 'package:flutter_emanuel/models/models.dart';
 class DrupalProvider extends ChangeNotifier {
   final String _baseUrl = 'https://emanuel.sahost.org';
 
-  // int _nid = 1;
-  // int _indice = 1;
-  // MiembroModels miembroCurrent =
-  //     MiembroModels(nid: '', nombre: '', documento: '');
-  // DrupalProvider();
+  int _mesCumple = 0;
+  late CelebracionesModel celebraciones;
 
-  // int get nid => _nid;
-  // set nid(int value) {
-  //   _nid = value;
-  //   notifyListeners();
-  // }
+  int get mesCumple => _mesCumple;
 
-  // int get indice => _indice;
-  // set indice(int value) {
-  //   _indice = value;
-  //   notifyListeners();
-  // }
+  set mesCumple(int value) {
+    _mesCumple = value;
+    notifyListeners();
+  }
 
   Future getCelebracionMensual(int mes) async {
-    var url = Uri.parse('$_baseUrl/api/celebraciones-mes/$mes?_format=json');
+    final now = DateTime.now();
+    final _mes = (_mesCumple == 0) ? now.month : mes;
+    var url = Uri.parse('$_baseUrl/api/celebraciones-mes/$_mes?_format=json');
     final response = await http.get(url);
-    final json = jsonDecode(response.body)[0];
-    final str = jsonEncode(json);
-    miembroCurrent = MiembroModels.fromJson(str);
-    return miembroCurrent;
+    final decodeData = jsonDecode(response.body);
+    celebraciones = CelebracionesModel.fromJsonList(decodeData);
+    return celebraciones.items;
   }
 }

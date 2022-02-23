@@ -1,9 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_emanuel/providers/providers.dart';
 import 'package:flutter_emanuel/screens/screens.dart';
 import 'package:flutter_emanuel/themes/default_theme.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const AppState());
+}
+
+class AppState extends StatelessWidget {
+  const AppState({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          lazy: false,
+          create: (_) => DrupalProvider(),
+        ),
+      ],
+      child: const MyApp(),
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
