@@ -38,10 +38,10 @@ class _Botones extends StatelessWidget {
           _BotonOpcion(
               botonIcono: icoNosotros,
               botonNombre: 'Emanuel',
-              routeName: 'construccion'),
+              routeName: 'emanuel-info'),
           _BotonOpcion(
               botonIcono: icoCumples,
-              botonNombre: 'Cumpleaños',
+              botonNombre: 'Celebraciones',
               routeName: 'cumples'),
           _BotonOpcion(
               botonIcono: icoFormacion,

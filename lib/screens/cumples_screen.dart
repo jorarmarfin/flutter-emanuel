@@ -15,7 +15,7 @@ class CumplesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Cumpleaños')),
+      appBar: AppBar(title: const Text('Celebraciones')),
       body: Container(
           width: double.infinity,
           height: double.infinity,
@@ -62,13 +62,16 @@ class _ResultCumples extends StatelessWidget {
                           : const Icon(FontAwesomeIcons.ring);
                   return Card(
                     child: ListTile(
-                      leading: icono,
+                      leading: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          drupalProvider.celebraciones.items[index].dia,
+                          style: DefaultTheme.base.textTheme.subtitle2,
+                        ),
+                      ),
+                      trailing: icono,
                       title: Text(
                           drupalProvider.celebraciones.items[index].miembro),
-                      subtitle: Text(
-                        drupalProvider.celebraciones.items[index].dia,
-                        style: const TextStyle(color: Colors.black),
-                      ),
                     ),
                   );
                 },

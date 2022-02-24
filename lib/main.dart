@@ -34,12 +34,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: DefaultTheme.base,
-      initialRoute: CumplesScreen.routerName,
+      initialRoute: HomeScreen.routerName,
       routes: {
         HomeScreen.routerName: (context) => const HomeScreen(),
         OptionsScreen.routerName: (context) => const OptionsScreen(),
         ConstruccionScreen.routerName: (context) => const ConstruccionScreen(),
         CumplesScreen.routerName: (context) => const CumplesScreen(),
+        EmanuelInfoScreen.routerName: (context) => EmanuelInfoScreen(),
       },
     );
   }
