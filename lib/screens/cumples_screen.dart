@@ -42,9 +42,7 @@ class _ResultCumples extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final drupalProvider = Provider.of<DrupalProvider>(context);
-    // final now = DateTime.now();
 
-    // drupalProvider.mesCumple = now.month;
     return FutureBuilder(
         future: drupalProvider.getCelebracionMensual(drupalProvider.mesCumple),
         builder: (BuildContext context, AsyncSnapshot snapshot) {

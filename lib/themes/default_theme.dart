@@ -25,6 +25,8 @@ const icoConstruccion = 'assets/icons/construccion2.gif';
 const icoOfrendas = 'assets/icons/money-bag.png';
 const icoFormacion = 'assets/icons/read.png';
 const icoEnlaces = 'assets/icons/zoom.png';
+const icoHistoria = 'assets/icons/history.png';
+const icoEspiritualidad = 'assets/icons/praying.png';
 
 class DefaultTheme {
   static ThemeData base = ThemeData.light().copyWith(

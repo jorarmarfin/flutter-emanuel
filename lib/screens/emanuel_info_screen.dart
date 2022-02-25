@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../components/components.dart';
 import '../data/datos_emanuel.dart';
+import '../providers/providers.dart';
 import '../themes/default_theme.dart';
 
 class EmanuelInfoScreen extends StatelessWidget {
@@ -30,9 +32,37 @@ class EmanuelInfoScreen extends StatelessWidget {
                   contenido: datosEmanuel.definicion),
               CustomCard(
                   titulo: 'Organizacion', contenido: datosEmanuel.organizacion),
+              const _EquipoCoordinacion(),
+              // for (var i in drupalProvider.coordinacion.items) Text(i.nombres),
               const _Botones()
             ],
           )),
+    );
+  }
+}
+
+class _EquipoCoordinacion extends StatelessWidget {
+  const _EquipoCoordinacion({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final drupalProvider = Provider.of<DrupalProvider>(context);
+    return FutureBuilder(
+      future: drupalProvider.getCoordinacion(),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else {
+          List<Widget> _coordinadores = [];
+          for (var item in drupalProvider.coordinacion.items) {
+            _coordinadores.add(CardTitleSubtitle(
+                title: item.nombres, subtitle: 'Coordinacion'));
+          }
+          return Column(
+            children: _coordinadores,
+          );
+        }
+      },
     );
   }
 }
@@ -48,11 +78,11 @@ class _Botones extends StatelessWidget {
       children: const [
         TableRow(children: [
           BotonOpcion(
-              botonIcono: icoNosotros,
+              botonIcono: icoHistoria,
               botonNombre: 'Historia',
               routeName: 'construccion'),
           BotonOpcion(
-              botonIcono: icoCumples,
+              botonIcono: icoEspiritualidad,
               botonNombre: 'Espiritualidad',
               routeName: 'construccion'),
         ]),

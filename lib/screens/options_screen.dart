@@ -12,7 +12,7 @@ class OptionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title:const Text('OPCIONES')),
       body: Container(
         width: double.infinity,
         decoration: const BoxDecoration(
@@ -57,7 +57,7 @@ class _Botones extends StatelessWidget {
           BotonOpcion(
               botonIcono: icoEnlaces,
               botonNombre: 'Zoom',
-              routeName: 'construccion'),
+              routeName: 'recursos'),
           BotonOpcion(
               botonIcono: icoMisas,
               botonNombre: 'Misas',

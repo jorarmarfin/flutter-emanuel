@@ -19,6 +19,10 @@ class AppState extends StatelessWidget {
           lazy: false,
           create: (_) => DrupalProvider(),
         ),
+        ChangeNotifierProvider(
+          lazy: false,
+          create: (_) => UtilsProvider(),
+        ),
       ],
       child: const MyApp(),
     );
@@ -34,13 +38,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: DefaultTheme.base,
-      initialRoute: EmanuelInfoScreen.routerName,
+      initialRoute: EmanuelHistoriaScreen.routerName,
       routes: {
         HomeScreen.routerName: (context) => const HomeScreen(),
         OptionsScreen.routerName: (context) => const OptionsScreen(),
         ConstruccionScreen.routerName: (context) => const ConstruccionScreen(),
         CumplesScreen.routerName: (context) => const CumplesScreen(),
         EmanuelInfoScreen.routerName: (context) => const EmanuelInfoScreen(),
+        EmanuelHistoriaScreen.routerName: (context) =>
+            const EmanuelHistoriaScreen(),
+        RecursosScreen.routerName: (context) => const RecursosScreen(),
       },
     );
   }
