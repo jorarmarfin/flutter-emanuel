@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_emanuel/data/lista_santos.dart';
 
+import '../components/components.dart';
 import '../themes/default_theme.dart';
 
 class OptionsScreen extends StatelessWidget {
@@ -35,87 +36,48 @@ class _Botones extends StatelessWidget {
     return Table(
       children: const [
         TableRow(children: [
-          _BotonOpcion(
+          BotonOpcion(
               botonIcono: icoNosotros,
               botonNombre: 'Emanuel',
               routeName: 'emanuel-info'),
-          _BotonOpcion(
+          BotonOpcion(
               botonIcono: icoCumples,
               botonNombre: 'Celebraciones',
               routeName: 'cumples'),
-          _BotonOpcion(
+          BotonOpcion(
               botonIcono: icoFormacion,
               botonNombre: 'Formación',
               routeName: 'construccion'),
         ]),
         TableRow(children: [
-          _BotonOpcion(
+          BotonOpcion(
               botonIcono: icoBiblioteca,
               botonNombre: 'Biblioteca',
               routeName: 'construccion'),
-          _BotonOpcion(
+          BotonOpcion(
               botonIcono: icoEnlaces,
               botonNombre: 'Zoom',
               routeName: 'construccion'),
-          _BotonOpcion(
+          BotonOpcion(
               botonIcono: icoMisas,
               botonNombre: 'Misas',
               routeName: 'construccion'),
         ]),
         TableRow(children: [
-          _BotonOpcion(
+          BotonOpcion(
               botonIcono: icoOfrendas,
               botonNombre: 'Ofrendas',
               routeName: 'construccion'),
-          _BotonOpcion(
+          BotonOpcion(
               botonIcono: icoServicios,
               botonNombre: 'Servicios',
               routeName: 'construccion'),
-          _BotonOpcion(
+          BotonOpcion(
               botonIcono: icoMisas,
               botonNombre: 'Noti',
               routeName: 'construccion'),
         ]),
       ],
-    );
-  }
-}
-
-class _BotonOpcion extends StatelessWidget {
-  final String botonIcono;
-  final String botonNombre;
-  final String routeName;
-  const _BotonOpcion({
-    Key? key,
-    required this.botonIcono,
-    required this.botonNombre,
-    required this.routeName,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, routeName);
-      },
-      child: Container(
-        margin: const EdgeInsets.all(7.0),
-        padding: const EdgeInsets.symmetric(vertical: 15.0),
-        decoration: estiloBoton(colorAmarillo),
-        child: Column(
-          children: [
-            Image.asset(
-              botonIcono,
-              width: 50,
-              height: 50,
-            ),
-            Text(
-              botonNombre,
-              style: DefaultTheme.base.textTheme.subtitle1,
-            )
-          ],
-        ),
-      ),
     );
   }
 }

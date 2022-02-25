@@ -7,7 +7,7 @@ const colorNaranja = Color(0xffFF9A3B);
 const colorRojo = Color(0xffEB445C);
 const colorAmarillo = Color(0xffFFD101);
 const colorCeleste = Color(0xff71EFE6);
-const colorColorBlanco = Colors.white;
+const colorBlanco = Colors.white;
 const colorTextColor = Colors.black;
 
 //Imagenes
@@ -39,12 +39,15 @@ class DefaultTheme {
           headline1: GoogleFonts.akayaTelivigala(
               fontSize: 60, color: colorTextColor, fontWeight: FontWeight.bold),
           headline2: GoogleFonts.josefinSans(fontSize: 20, color: Colors.white),
-          headline3: GoogleFonts.josefinSans(fontSize: 20, color: Colors.black),
+          headline3: GoogleFonts.josefinSans(
+              fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
+          headline4: GoogleFonts.josefinSans(fontSize: 20, color: Colors.black),
           headline6: GoogleFonts.josefinSans(fontSize: 20, color: Colors.white),
           subtitle1: GoogleFonts.josefinSans(fontSize: 17, color: Colors.black),
           subtitle2: GoogleFonts.josefinSans(
               fontSize: 17, color: Colors.black, fontWeight: FontWeight.bold),
-          bodyText1: const TextStyle(color: Colors.black)));
+          bodyText1: const TextStyle(
+              color: Colors.black, fontSize: 17, wordSpacing: 5)));
 }
 
 BoxDecoration estiloRecuadro(color) {
