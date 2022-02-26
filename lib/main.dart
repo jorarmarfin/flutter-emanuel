@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: DefaultTheme.base,
-      initialRoute: EmanuelHistoriaScreen.routerName,
+      initialRoute: OptionsScreen.routerName,
       routes: {
         HomeScreen.routerName: (context) => const HomeScreen(),
         OptionsScreen.routerName: (context) => const OptionsScreen(),

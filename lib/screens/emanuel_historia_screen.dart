@@ -21,10 +21,20 @@ class EmanuelHistoriaScreen extends StatelessWidget {
         ),
         child: Timeline.tileBuilder(
           builder: TimelineTileBuilder.fromStyle(
-            contentsAlign: ContentsAlign.alternating,
+            contentsAlign: ContentsAlign.reverse,
             contentsBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: Text('Timeline Event $index'),
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+              child: Text(
+                ' $index',
+                style: DefaultTheme.base.textTheme.bodyText1,
+              ),
+            ),
+            oppositeContentsBuilder: (context, index) => Card(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Contents',
+                    style: DefaultTheme.base.textTheme.bodyText1),
+              ),
             ),
             itemCount: 10,
           ),
