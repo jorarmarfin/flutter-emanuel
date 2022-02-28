@@ -19,26 +19,7 @@ class EmanuelHistoriaScreen extends StatelessWidget {
         decoration: const BoxDecoration(
           image: DecorationImage(image: AssetImage(imgFondo), fit: BoxFit.fill),
         ),
-        child: Timeline.tileBuilder(
-          builder: TimelineTileBuilder.fromStyle(
-            contentsAlign: ContentsAlign.reverse,
-            contentsBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-              child: Text(
-                ' $index',
-                style: DefaultTheme.base.textTheme.bodyText1,
-              ),
-            ),
-            oppositeContentsBuilder: (context, index) => Card(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('Contents',
-                    style: DefaultTheme.base.textTheme.bodyText1),
-              ),
-            ),
-            itemCount: 10,
-          ),
-        ),
+        child: Text('data'),
       ),
     );
   }

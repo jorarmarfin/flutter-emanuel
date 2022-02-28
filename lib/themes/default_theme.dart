@@ -27,6 +27,7 @@ const icoFormacion = 'assets/icons/read.png';
 const icoEnlaces = 'assets/icons/zoom.png';
 const icoHistoria = 'assets/icons/history.png';
 const icoEspiritualidad = 'assets/icons/praying.png';
+const icoSantisimo = 'assets/icons/eucharist.png';
 
 class DefaultTheme {
   static ThemeData base = ThemeData.light().copyWith(
