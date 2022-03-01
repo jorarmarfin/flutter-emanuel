@@ -12,6 +12,8 @@ class DrupalProvider extends ChangeNotifier {
   late CelebracionesModel celebraciones;
   late CoordinacionModel coordinacion;
   late RecursosModel recursosDrupal;
+  late List<PaginaModel> paginasDrupal = [];
+  late List<AvisoModel> avisosDrupal = [];
 
   int get mesCumple => _mesCumple;
 
@@ -37,11 +39,25 @@ class DrupalProvider extends ChangeNotifier {
     coordinacion = CoordinacionModel.fromJsonList(decodeData);
     return coordinacion.items;
   }
+
   Future getRecursos(String tipo) async {
     var url = Uri.parse('$_baseUrl/api/recurso/$tipo?_format=json');
     final response = await http.get(url);
     final decodeData = jsonDecode(response.body);
     recursosDrupal = RecursosModel.fromJsonList(decodeData);
     return recursosDrupal.items;
+  }
+
+  Future getPaginas(String nid) async {
+    var url = Uri.parse('$_baseUrl/api/pagina/$nid?_format=json');
+    final response = await http.get(url);
+    final decodeData = jsonDecode(response.body);
+    paginasDrupal = PaginasModel.fromJson(decodeData).paginas;
+  }
+  Future getAvisos() async {
+    var url = Uri.parse('$_baseUrl/api/avisos?_format=json');
+    final response = await http.get(url);
+    final decodeData = jsonDecode(response.body);
+    avisosDrupal = AvisosModel.fromJson(decodeData).avisos;
   }
 }

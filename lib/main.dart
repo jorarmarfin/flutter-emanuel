@@ -23,6 +23,10 @@ class AppState extends StatelessWidget {
           lazy: false,
           create: (_) => UtilsProvider(),
         ),
+        ChangeNotifierProvider(
+          lazy: false,
+          create: (_) => LocalProvider(),
+        ),
       ],
       child: const MyApp(),
     );
@@ -48,6 +52,10 @@ class MyApp extends StatelessWidget {
         EmanuelHistoriaScreen.routerName: (context) =>
             const EmanuelHistoriaScreen(),
         RecursosScreen.routerName: (context) => const RecursosScreen(),
+        MisasScreen.routerName: (context) => const MisasScreen(),
+        SantisimoScreen.routerName: (context) => const SantisimoScreen(),
+        OfrendasScreen.routerName: (context) => const OfrendasScreen(),
+        AvisosScreen.routerName: (context) => const AvisosScreen(),
       },
     );
   }

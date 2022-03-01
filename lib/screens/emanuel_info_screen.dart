@@ -81,10 +81,6 @@ class _Botones extends StatelessWidget {
               botonIcono: icoHistoria,
               botonNombre: 'Historia',
               routeName: 'emanuel-historia'),
-          BotonOpcion(
-              botonIcono: icoEspiritualidad,
-              botonNombre: 'Espiritualidad',
-              routeName: 'construccion'),
         ]),
       ],
     );

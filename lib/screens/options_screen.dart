@@ -45,36 +45,34 @@ class _Botones extends StatelessWidget {
               botonNombre: 'Celebraciones',
               routeName: 'cumples'),
           BotonOpcion(
-              botonIcono: icoFormacion,
-              botonNombre: 'Formación',
-              routeName: 'construccion'),
+              botonIcono: icoAvisos,
+              botonNombre: 'Avisos',
+              routeName: 'avisos'),
         ]),
         TableRow(children: [
-          BotonOpcion(
-              botonIcono: icoBiblioteca,
-              botonNombre: 'Biblioteca',
-              routeName: 'construccion'),
           BotonOpcion(
               botonIcono: icoEnlaces,
               botonNombre: 'Zoom',
               routeName: 'recursos'),
           BotonOpcion(
-              botonIcono: icoMisas,
-              botonNombre: 'Misas',
-              routeName: 'construccion'),
+              botonIcono: icoMisas, botonNombre: 'Misas', routeName: 'misas'),
+          BotonOpcion(
+              botonIcono: icoSantisimo,
+              botonNombre: 'Santisimo',
+              routeName: 'santisimo'),
         ]),
         TableRow(children: [
           BotonOpcion(
               botonIcono: icoOfrendas,
               botonNombre: 'Ofrendas',
+              routeName: 'ofrendas'),
+          BotonOpcion(
+              botonIcono: icoBiblioteca,
+              botonNombre: 'Biblioteca',
               routeName: 'construccion'),
           BotonOpcion(
               botonIcono: icoServicios,
               botonNombre: 'Servicios',
-              routeName: 'construccion'),
-          BotonOpcion(
-              botonIcono: icoSantisimo,
-              botonNombre: 'Santisimo',
               routeName: 'construccion'),
         ]),
       ],
