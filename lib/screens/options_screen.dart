@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_emanuel/data/lista_santos.dart';
+import 'package:provider/provider.dart';
 
 import '../components/components.dart';
+import '../providers/providers.dart';
 import '../themes/default_theme.dart';
 
 class OptionsScreen extends StatelessWidget {
@@ -87,15 +89,28 @@ class _CicloLiturgico extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final octoberProvider = Provider.of<OctoberProvider>(context);
+
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(15.0),
       margin: const EdgeInsets.all(15.0),
       decoration: estiloRecuadro(colorRojo),
-      child: Text(
-        'Ciclo C - Tiempo ordinario'.toUpperCase(),
-        textAlign: TextAlign.center,
-        style: DefaultTheme.base.textTheme.headline2,
+      child: FutureBuilder(
+        future: octoberProvider.getTiempoLiturgico(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else {
+            return Text(
+              octoberProvider.tiempoLiturgico.ciclo +
+                  ' - ' +
+                  octoberProvider.tiempoLiturgico.tiempo.toUpperCase(),
+              textAlign: TextAlign.center,
+              style: DefaultTheme.base.textTheme.headline2,
+            );
+          }
+        },
       ),
     );
   }

@@ -14,4 +14,5 @@ class LocalProvider extends ChangeNotifier {
     final json = await jsonDecode(response);
     listaHistoria = ListaHistoriaModel.fromJson(json).listaHistoria;
   }
+
 }

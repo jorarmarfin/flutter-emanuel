@@ -27,6 +27,10 @@ class AppState extends StatelessWidget {
           lazy: false,
           create: (_) => LocalProvider(),
         ),
+        ChangeNotifierProvider(
+          lazy: false,
+          create: (_) => OctoberProvider(),
+        ),
       ],
       child: const MyApp(),
     );

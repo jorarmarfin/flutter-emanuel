@@ -7,3 +7,4 @@ export 'package:flutter_emanuel/models/recursos_model.dart';
 export 'package:flutter_emanuel/models/lista_historia_model.dart';
 export 'package:flutter_emanuel/models/paginas_model.dart';
 export 'package:flutter_emanuel/models/avisos_model.dart';
+export 'package:flutter_emanuel/models/tiempo_liturgico_model.dart';
