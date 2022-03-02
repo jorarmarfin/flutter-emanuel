@@ -9,3 +9,4 @@ export 'package:flutter_emanuel/screens/misas_screen.dart';
 export 'package:flutter_emanuel/screens/santisimo_screen.dart';
 export 'package:flutter_emanuel/screens/ofrendas_screen.dart';
 export 'package:flutter_emanuel/screens/avisos_screen.dart';
+export 'package:flutter_emanuel/screens/temp_screen.dart';

@@ -20,8 +20,9 @@ class BotonOpcion extends StatelessWidget {
         Navigator.pushNamed(context, routeName);
       },
       child: Container(
-        margin: const EdgeInsets.all(7.0),
-        padding: const EdgeInsets.symmetric(vertical: 15.0),
+        width: 115,
+        margin: const EdgeInsets.all(2.0),
+        padding: const EdgeInsets.symmetric(vertical: 16.0),
         decoration: estiloBoton(colorAmarillo),
         child: Column(
           children: [

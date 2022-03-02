@@ -1,0 +1,44 @@
+return Table(
+      children: const [
+        TableRow(children: [
+          BotonOpcion(
+              botonIcono: icoNosotros,
+              botonNombre: 'Emanuel',
+              routeName: 'emanuel-info'),
+          BotonOpcion(
+              botonIcono: icoCumples,
+              botonNombre: 'Celebraciones',
+              routeName: 'cumples'),
+          BotonOpcion(
+              botonIcono: icoAvisos,
+              botonNombre: 'Avisos',
+              routeName: 'avisos'),
+        ]),
+        TableRow(children: [
+          BotonOpcion(
+              botonIcono: icoEnlaces,
+              botonNombre: 'Zoom',
+              routeName: 'recursos'),
+          BotonOpcion(
+              botonIcono: icoMisas, botonNombre: 'Misas', routeName: 'misas'),
+          BotonOpcion(
+              botonIcono: icoSantisimo,
+              botonNombre: 'Santisimo',
+              routeName: 'santisimo'),
+        ]),
+        TableRow(children: [
+          BotonOpcion(
+              botonIcono: icoOfrendas,
+              botonNombre: 'Ofrendas',
+              routeName: 'ofrendas'),
+          BotonOpcion(
+              botonIcono: icoBiblioteca,
+              botonNombre: 'Biblioteca',
+              routeName: 'construccion'),
+          BotonOpcion(
+              botonIcono: icoServicios,
+              botonNombre: 'Servicios',
+              routeName: 'construccion'),
+        ]),
+      ],
+    );

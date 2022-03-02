@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_emanuel/data/lista_santos.dart';
 import 'package:provider/provider.dart';
 
 import '../components/components.dart';
@@ -14,13 +13,16 @@ class OptionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('OPCIONES')),
+      appBar: AppBar(
+          title: const Text(
+        'Grupo de Oracion Emanuel',
+      )),
       body: Container(
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(image: AssetImage(imgFondo), fit: BoxFit.fill),
         ),
-        child: ListView(
+        child: Column(
           children: const [_SantoDelDia(), _CicloLiturgico(), _Botones()], //
         ),
       ),
@@ -35,49 +37,59 @@ class _Botones extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Table(
-      children: const [
-        TableRow(children: [
-          BotonOpcion(
-              botonIcono: icoNosotros,
-              botonNombre: 'Emanuel',
-              routeName: 'emanuel-info'),
-          BotonOpcion(
-              botonIcono: icoCumples,
-              botonNombre: 'Celebraciones',
-              routeName: 'cumples'),
-          BotonOpcion(
-              botonIcono: icoAvisos,
-              botonNombre: 'Avisos',
-              routeName: 'avisos'),
-        ]),
-        TableRow(children: [
-          BotonOpcion(
-              botonIcono: icoEnlaces,
-              botonNombre: 'Zoom',
-              routeName: 'recursos'),
-          BotonOpcion(
-              botonIcono: icoMisas, botonNombre: 'Misas', routeName: 'misas'),
-          BotonOpcion(
-              botonIcono: icoSantisimo,
-              botonNombre: 'Santisimo',
-              routeName: 'santisimo'),
-        ]),
-        TableRow(children: [
-          BotonOpcion(
-              botonIcono: icoOfrendas,
-              botonNombre: 'Ofrendas',
-              routeName: 'ofrendas'),
-          BotonOpcion(
-              botonIcono: icoBiblioteca,
-              botonNombre: 'Biblioteca',
-              routeName: 'construccion'),
-          BotonOpcion(
-              botonIcono: icoServicios,
-              botonNombre: 'Servicios',
-              routeName: 'construccion'),
-        ]),
-      ],
+    return Expanded(
+      child: ListView(
+        children: [
+          Row(
+            children: const [
+              BotonOpcion(
+                  botonIcono: icoNosotros,
+                  botonNombre: 'Emanuel',
+                  routeName: 'emanuel-info'),
+              BotonOpcion(
+                  botonIcono: icoCumples,
+                  botonNombre: 'Celebraciones',
+                  routeName: 'cumples'),
+              BotonOpcion(
+                  botonIcono: icoAvisos,
+                  botonNombre: 'Avisos',
+                  routeName: 'avisos'),
+            ],
+          ),
+          Row(
+            children: const [
+              BotonOpcion(
+                  botonIcono: icoEnlaces,
+                  botonNombre: 'Zoom',
+                  routeName: 'recursos'),
+              BotonOpcion(
+                  botonIcono: icoMisas,
+                  botonNombre: 'Misas',
+                  routeName: 'misas'),
+              BotonOpcion(
+                  botonIcono: icoSantisimo,
+                  botonNombre: 'Santisimo',
+                  routeName: 'santisimo'),
+            ],
+          ),
+          Row(
+            children: const [
+              BotonOpcion(
+                  botonIcono: icoOfrendas,
+                  botonNombre: 'Ofrendas',
+                  routeName: 'ofrendas'),
+              BotonOpcion(
+                  botonIcono: icoBiblioteca,
+                  botonNombre: 'Biblioteca',
+                  routeName: 'construccion'),
+              BotonOpcion(
+                  botonIcono: icoServicios,
+                  botonNombre: 'Servicios',
+                  routeName: 'construccion'),
+            ],
+          )
+        ],
+      ),
     );
   }
 }
@@ -123,34 +135,55 @@ class _SantoDelDia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _listaSantos =
-        listaSantos.where((santo) => santo.mes == 1 && santo.dia == 2).toList();
+    final octoberProvider = Provider.of<OctoberProvider>(context);
 
-    return Container(
-      margin: const EdgeInsets.all(15.0),
-      decoration: estiloRecuadro(colorCeleste),
-      child: Row(children: [
-        Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: CircleAvatar(
-            maxRadius: 50,
-            backgroundImage: NetworkImage(_listaSantos[0].imagen),
-          ),
-        ),
-        Expanded(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Text(
-                  _listaSantos[0].nombre,
-                  style: DefaultTheme.base.textTheme.subtitle1,
-                ),
-              ),
-            ],
-          ),
-        )
-      ]),
+    return FutureBuilder(
+      future: octoberProvider.getSantosDelDia(),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else {
+          return SizedBox(
+            height: 120,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: octoberProvider.santos.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  width: 300,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 5, vertical: 17),
+                  margin: const EdgeInsets.all(8),
+                  decoration: estiloRecuadro(colorCeleste),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 2.0),
+                        child: CircleAvatar(
+                          maxRadius: 70,
+                          backgroundImage: NetworkImage(
+                              octoberProvider.santos[index].imagen),
+                        ),
+                      ),
+                      Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              octoberProvider.santos[index].nombre,
+                              style: DefaultTheme.base.textTheme.subtitle1,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          );
+        }
+      },
     );
   }
 }
