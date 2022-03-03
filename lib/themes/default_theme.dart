@@ -40,18 +40,23 @@ class DefaultTheme {
         // elevation: 0 // si hay o no sombra
       ),
       textTheme: TextTheme(
-          headline1: GoogleFonts.akayaTelivigala(
-              fontSize: 60, color: colorTextColor, fontWeight: FontWeight.bold),
-          headline2: GoogleFonts.josefinSans(fontSize: 20, color: Colors.white),
-          headline3: GoogleFonts.josefinSans(
-              fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
-          headline4: GoogleFonts.josefinSans(fontSize: 20, color: Colors.black),
-          headline6: GoogleFonts.josefinSans(fontSize: 20, color: Colors.white),
-          subtitle1: GoogleFonts.josefinSans(fontSize: 17, color: Colors.black),
-          subtitle2: GoogleFonts.josefinSans(
-              fontSize: 17, color: Colors.black, fontWeight: FontWeight.bold),
-          bodyText1: const TextStyle(
-              color: Colors.black, fontSize: 17, wordSpacing: 5)));
+        headline1: GoogleFonts.akayaTelivigala(
+            fontSize: 60, color: colorTextColor, fontWeight: FontWeight.bold),
+        headline2: GoogleFonts.josefinSans(fontSize: 20, color: Colors.white),
+        headline3: GoogleFonts.josefinSans(
+            fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
+        headline4: GoogleFonts.josefinSans(fontSize: 20, color: Colors.black),
+        headline6: GoogleFonts.josefinSans(fontSize: 20, color: Colors.white),
+        subtitle1: GoogleFonts.josefinSans(fontSize: 17, color: Colors.black),
+        subtitle2: GoogleFonts.josefinSans(
+            fontSize: 17, color: Colors.black, fontWeight: FontWeight.bold),
+        bodyText1:
+            const TextStyle(color: Colors.black, fontSize: 17, wordSpacing: 5),
+        bodyText2:
+            const TextStyle(color: Colors.black, fontSize: 10, wordSpacing: 5),
+        caption:
+            const TextStyle(color: Colors.black, fontSize: 7, wordSpacing: 5),
+      ));
 }
 
 BoxDecoration estiloRecuadro(color) {

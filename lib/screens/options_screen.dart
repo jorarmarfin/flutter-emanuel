@@ -103,26 +103,32 @@ class _CicloLiturgico extends StatelessWidget {
   Widget build(BuildContext context) {
     final octoberProvider = Provider.of<OctoberProvider>(context);
 
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(15.0),
-      margin: const EdgeInsets.all(15.0),
-      decoration: estiloRecuadro(colorRojo),
-      child: FutureBuilder(
-        future: octoberProvider.getTiempoLiturgico(),
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else {
-            return Text(
-              octoberProvider.tiempoLiturgico.ciclo +
-                  ' - ' +
-                  octoberProvider.tiempoLiturgico.tiempo.toUpperCase(),
-              textAlign: TextAlign.center,
-              style: DefaultTheme.base.textTheme.headline2,
-            );
-          }
-        },
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, 'liturgia');
+      },
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(15.0),
+        margin: const EdgeInsets.all(15.0),
+        decoration: estiloRecuadro(colorRojo),
+        child: FutureBuilder(
+          future: octoberProvider.getTiempoLiturgico(),
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            } else {
+              return Text(
+                'Ciclo ' +
+                    octoberProvider.tiempoLiturgico.ciclo +
+                    ' - ' +
+                    octoberProvider.tiempoLiturgico.tiempo.toUpperCase(),
+                textAlign: TextAlign.center,
+                style: DefaultTheme.base.textTheme.headline2,
+              );
+            }
+          },
+        ),
       ),
     );
   }
@@ -144,39 +150,47 @@ class _SantoDelDia extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         } else {
           return SizedBox(
-            height: 120,
+            height: 150,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: octoberProvider.santos.length,
               itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  width: 300,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 5, vertical: 17),
-                  margin: const EdgeInsets.all(8),
-                  decoration: estiloRecuadro(colorCeleste),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 2.0),
-                        child: CircleAvatar(
-                          maxRadius: 70,
-                          backgroundImage: NetworkImage(
-                              octoberProvider.santos[index].imagen),
+                return GestureDetector(
+                  onTap: () {
+                    octoberProvider.santoId = index;
+                    Navigator.pushNamed(context, 'santo_detalle');
+                  },
+                  child: Container(
+                    width: 300,
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 5, vertical: 17),
+                    margin: const EdgeInsets.all(8),
+                    decoration: estiloRecuadro(colorCeleste),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 2.0),
+                          child: CircleAvatar(
+                            maxRadius: 70,
+                            backgroundImage: NetworkImage(
+                                octoberProvider.santos[index].imagen),
+                          ),
                         ),
-                      ),
-                      Expanded(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              octoberProvider.santos[index].nombre,
-                              style: DefaultTheme.base.textTheme.subtitle1,
-                            ),
-                          ],
+                        Expanded(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('El santo del Día',
+                                  style: DefaultTheme.base.textTheme.subtitle2),
+                              Text(
+                                octoberProvider.santos[index].nombre,
+                                style: DefaultTheme.base.textTheme.bodyText1,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 );
               },
