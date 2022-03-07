@@ -62,6 +62,7 @@ class MyApp extends StatelessWidget {
         AvisosScreen.routerName: (context) => const AvisosScreen(),
         SantoDetalleScreen.routerName: (context) => const SantoDetalleScreen(),
         LiturgiaScreen.routerName: (context) => const LiturgiaScreen(),
+        FormacionScreen.routerName: (context) => const FormacionScreen(),
         TempScreen.routerName: (context) => const TempScreen(),
       },
     );

@@ -8,6 +8,7 @@ import 'package:flutter_emanuel/models/models.dart';
 class OctoberProvider extends ChangeNotifier {
   final String _baseUrl = 'https://recursos.sahost.org';
   int _santoId = 0;
+  late FormacionModel formacion;
 
   int get santoId => _santoId;
 
@@ -38,5 +39,10 @@ class OctoberProvider extends ChangeNotifier {
     var url = Uri.parse('$_baseUrl/api/liturgia');
     final response = await http.get(url);
     liturgia = LiturgiaModel.fromJson(response.body);
+  }
+  Future getFormacion() async {
+    var url = Uri.parse('$_baseUrl/api/formacion');
+    final response = await http.get(url);
+    formacion = FormacionModel.fromJson(response.body);
   }
 }

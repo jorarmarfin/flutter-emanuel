@@ -10,3 +10,4 @@ export 'package:flutter_emanuel/models/avisos_model.dart';
 export 'package:flutter_emanuel/models/tiempo_liturgico_model.dart';
 export 'package:flutter_emanuel/models/santos_model.dart';
 export 'package:flutter_emanuel/models/liturgia_model.dart';
+export 'package:flutter_emanuel/models/formacion_model.dart';

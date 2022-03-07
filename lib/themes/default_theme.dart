@@ -46,6 +46,7 @@ class DefaultTheme {
         headline3: GoogleFonts.josefinSans(
             fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
         headline4: GoogleFonts.josefinSans(fontSize: 20, color: Colors.black),
+        headline5: GoogleFonts.josefinSans(fontSize: 15, color: Colors.white),
         headline6: GoogleFonts.josefinSans(fontSize: 20, color: Colors.white),
         subtitle1: GoogleFonts.josefinSans(fontSize: 17, color: Colors.black),
         subtitle2: GoogleFonts.josefinSans(

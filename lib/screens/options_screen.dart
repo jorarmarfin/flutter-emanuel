@@ -79,12 +79,20 @@ class _Botones extends StatelessWidget {
                   botonNombre: 'Ofrendas',
                   routeName: 'ofrendas'),
               BotonOpcion(
-                  botonIcono: icoBiblioteca,
-                  botonNombre: 'Biblioteca',
-                  routeName: 'construccion'),
+                  botonIcono: icoFormacion,
+                  botonNombre: 'Formación',
+                  routeName: 'formacion'),
               BotonOpcion(
                   botonIcono: icoServicios,
                   botonNombre: 'Servicios',
+                  routeName: 'construccion'),
+            ],
+          ),
+          Row(
+            children: const [
+              BotonOpcion(
+                  botonIcono: icoBiblioteca,
+                  botonNombre: 'Biblioteca',
                   routeName: 'construccion'),
             ],
           )
